@@ -26,6 +26,7 @@ class _TasksListState extends State<TasksList> {
               Scaffold.of(context).showSnackBar(SnackBar(
                 backgroundColor: Colors.red,
                 content: Text("Task deleted!"),
+                duration: Duration(milliseconds: 800),
               ));
             },
           );
