@@ -4,11 +4,7 @@ import '../models/task.dart';
 class TaskData extends ChangeNotifier {
   List<Task> _tasks = [
     Task(name: "Walk the dog", isDone: false),
-    Task(name: "Buy food", isDone: false),
-    Task(name: "Read new book", isDone: true),
-    Task(name: "Head to schools", isDone: false),
-    Task(name: "Head to school", isDone: true),
-    Task(name: "Gym", isDone: false),
+    Task(name: "Buy food from walmart", isDone: false),
   ];
 
   int getTasksCount() {
@@ -26,6 +22,11 @@ class TaskData extends ChangeNotifier {
 
   void updateTask(Task task) {
     task.toggleDone();
+    notifyListeners();
+  }
+
+  void deletetask(Task task) {
+    tasks.remove(task);
     notifyListeners();
   }
 }

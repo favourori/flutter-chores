@@ -16,11 +16,19 @@ class _TasksListState extends State<TasksList> {
         itemCount: taskData.getTasksCount(),
         itemBuilder: (context, index) {
           return TaskTile(
-              taskkTitle: taskData.tasks[index].name,
-              isChecked: taskData.tasks[index].isDone,
-              checkboxCallback: (checkboxState) {
-                taskData.updateTask(taskData.tasks[index]);
-              });
+            taskkTitle: taskData.tasks[index].name,
+            isChecked: taskData.tasks[index].isDone,
+            checkboxCallback: (checkboxState) {
+              taskData.updateTask(taskData.tasks[index]);
+            },
+            onLongPress: () {
+              taskData.deletetask(taskData.tasks[index]);
+              Scaffold.of(context).showSnackBar(SnackBar(
+                backgroundColor: Colors.red,
+                content: Text("Task deleted!"),
+              ));
+            },
+          );
         },
       );
     });
